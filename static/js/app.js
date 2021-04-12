@@ -40,27 +40,31 @@ button.on("click", function() {
 })});
 
 // Select the dropdown menu 
-var dropdownMenu = d3.select("select");
+var dropdownMenu = d3.select("#selDataset");
+
 dropdownMenu.on("click", function() {
     var filterOption = dropdownMenu.property("value");
     var label = d3.select("label");
     // var placeholder = d3.select("input").attr("placeholder");
+
+    console.log(`dropdown clicked`)
     
-    if (filterOption === 'City') {
+    if (filterOption == 'City') {
         label.text('Enter a City');
+        console.log(`city`);
     }
-    else if (filterOption === 'State') {
+    else if (filterOption == 'State') {
         label.text('Enter a State');
     }
-    else if (filterOption === 'Country') {
+    else if (filterOption == 'Country') {
         label.text('Enter a Country');
 
     }
-    else if (filterOption === 'Shape') {
+    else if (filterOption == 'Shape') {
         label.text('Enter a Shape');
 
     }
-    else if (filterOption === 'Date') {
+    else if (filterOption == 'Date') {
         label.text('Enter a Date');
 }});
 
