@@ -40,31 +40,36 @@ button.on("click", function() {
 })});
 
 // Select the dropdown menu 
-var dropdownMenu = d3.select("#selDataset");
+var dropdownMenu = d3.selectAll("#selDataset");
 
-dropdownMenu.on("click", function() {
+// Function to update the filter box 
+dropdownMenu.on("change", function() {
+
+    // Select filter option, label, placeholder
     var filterOption = dropdownMenu.property("value");
-    var label = d3.select("label");
-    // var placeholder = d3.select("input").attr("placeholder");
+    var label = d3.selectAll("label");
+    var placeholder = d3.selectAll("input");
 
-    console.log(`dropdown clicked`)
-    
+    // Change label and placeholder 
     if (filterOption == 'City') {
         label.text('Enter a City');
-        console.log(`city`);
+        placeholder.attr("placeholder","Seattle");
     }
     else if (filterOption == 'State') {
         label.text('Enter a State');
+        placeholder.attr("placeholder","Washington");
     }
     else if (filterOption == 'Country') {
         label.text('Enter a Country');
-
+        placeholder.attr("placeholder","US");
     }
     else if (filterOption == 'Shape') {
         label.text('Enter a Shape');
-
+        placeholder.attr("placeholder","Circle")
     }
     else if (filterOption == 'Date') {
         label.text('Enter a Date');
+        placeholder.attr("placeholder","1/11/2011");
 }});
+
 
