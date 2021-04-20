@@ -1,16 +1,28 @@
 // Add data to table 
-data.forEach(function(appendTable) {
+// data.forEach(function(appendTable) {
 
+//     // Add a row 
+//     var row = d3.select("tbody").append("tr");
+
+//     // Add a cell and enter values into each cell 
+//     Object.entries(appendTable).forEach(function([key,value]) {
+//         var cell = row.append("td");
+//         cell.text(value);
+//     });
+// });
+
+function appendTable(dataset) {
+    dataset.forEach((dataRow) => { 
     // Add a row 
     var row = d3.select("tbody").append("tr");
 
     // Add a cell and enter values into each cell 
-    Object.entries(appendTable).forEach(function([key,value]) {
+    Object.entries(dataRow).forEach(function([key,value]) {
         var cell = row.append("td");
         cell.text(value);
     });
-});
-
+})};
+appendTable(data);
 
 // Select the filter button
 var button = d3.select("button");
@@ -69,7 +81,7 @@ dropdownMenu.on("change", function() {
     }
     else if (filterOption == 'Date') {
         label.text('Enter a Date');
-        placeholder.attr("placeholder","1/11/2011");
+        placeholder.attr("placeholder","1/11/2010");
 }});
 
 
